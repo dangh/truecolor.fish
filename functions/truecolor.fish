@@ -1,6 +1,6 @@
 # from https://unix.stackexchange.com/a/404415
 function truecolor --argument-names width --description "test true color in terminal"
-  if not test $width -gt 0
+  if ! string match --quiet --regex '^\\d+$' -- $width
     if command --query tput
       set width (command tput cols)
     else
