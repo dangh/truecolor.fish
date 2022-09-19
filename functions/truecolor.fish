@@ -1,7 +1,7 @@
 # from https://unix.stackexchange.com/a/404415
-function truecolor --argument-names width --description "test true color in terminal"
-  if ! string match --quiet --regex '^\\d+$' -- $width
-    if command --query tput
+function truecolor -a width -d "test true color in terminal"
+  if ! string match -q -r '^\\d+$' -- $width
+    if command -q tput
       set width (command tput cols)
     else
       set width 80
